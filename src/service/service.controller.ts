@@ -44,7 +44,7 @@ export class ServiceController {
   async updateService(
     @Param('id') id: string,
     @Body() serviceDto: UpdateServiceDTO,
-  ): Promise<void> {
+  ): Promise<Service> {
     return await this.service.updateService(id, serviceDto);
   }
 

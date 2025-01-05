@@ -25,6 +25,9 @@ export class ServiceRepository {
       where: {
         carPlate,
       },
+      orderBy: {
+        entryDate: 'desc',
+      },
     });
   }
 
@@ -42,8 +45,8 @@ export class ServiceRepository {
   async updateService(
     id: string,
     data: Prisma.ServiceUpdateInput,
-  ): Promise<void> {
-    await this.prisma.service.update({
+  ): Promise<Service> {
+    return await this.prisma.service.update({
       where: {
         id,
       },

@@ -57,12 +57,15 @@ export class ServiceService {
     }
   }
 
-  async updateService(id: string, serviceDto: UpdateServiceDTO): Promise<void> {
+  async updateService(
+    id: string,
+    serviceDto: UpdateServiceDTO,
+  ): Promise<Service> {
     const service = await this.service.findServiceById(id);
     if (!service) throw new NotFoundException('Serviço não encontrado');
 
     try {
-      await this.service.updateService(id, { ...serviceDto });
+      return await this.service.updateService(id, { ...serviceDto });
     } catch (error) {
       throw new InternalServerErrorException('Falhou ao atualizar serviço');
     }
