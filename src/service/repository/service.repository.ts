@@ -6,8 +6,8 @@ import { PrismaService } from 'src/shared/prisma/prisma.service';
 export class ServiceRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async createService(data: Prisma.ServiceCreateInput): Promise<void> {
-    await this.prisma.service.create({
+  async createService(data: Prisma.ServiceCreateInput): Promise<Service> {
+    return await this.prisma.service.create({
       data,
     });
   }

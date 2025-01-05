@@ -17,30 +17,30 @@ export class ServiceController {
   constructor(private readonly service: ServiceService) {}
 
   @Post('create')
-  async createService(@Body() serviceDto: CreateServiceDTO): Promise<void> {
-    await this.service.createService(serviceDto);
+  async createService(@Body() serviceDto: CreateServiceDTO): Promise<Service> {
+    return await this.service.createService(serviceDto);
   }
 
-  @Get(':id')
+  @Get('id/:id')
   async findServiceById(@Param('id') id: string): Promise<Service> {
     return await this.service.findServiceById(id);
   }
 
-  @Get(':carPlate')
+  @Get('car-plate/:carPlate')
   async findServiceByCarPlate(
     @Param('carPlate') carPlate: string,
   ): Promise<Service[]> {
     return await this.service.findServiceByCarPlate(carPlate);
   }
 
-  @Get(':carModel')
+  @Get('car-model/:carModel')
   async findServiceByCarModel(
     @Param('carModel') carModel: string,
   ): Promise<Service[]> {
     return await this.service.findServiceByCarModel(carModel);
   }
 
-  @Patch(':id')
+  @Patch('id/:id')
   async updateService(
     @Param('id') id: string,
     @Body() serviceDto: UpdateServiceDTO,
@@ -48,7 +48,7 @@ export class ServiceController {
     return await this.service.updateService(id, serviceDto);
   }
 
-  @Delete(':id')
+  @Delete('id/:id')
   async deleteService(@Param('id') id: string): Promise<void> {
     return await this.service.deleteService(id);
   }

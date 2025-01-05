@@ -35,7 +35,7 @@ export class CreateServiceDTO {
 
   @IsOptional()
   @IsString()
-  readonly carEngine?: number;
+  readonly carEngine?: string;
 
   @IsOptional()
   @IsString()

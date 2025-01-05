@@ -23,7 +23,7 @@ model Service {
   carYear             Int?
   carModelYear        Int?
   carColor            String?
-  carEngine           Int?
+  carEngine           String?
   employee            String?
   totalPrice          Int      @default(0)
   serviceDone         String   @default("")

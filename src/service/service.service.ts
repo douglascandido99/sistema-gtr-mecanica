@@ -12,8 +12,8 @@ import { Service } from '@prisma/client';
 export class ServiceService {
   constructor(private readonly service: ServiceRepository) {}
 
-  async createService(serviceDto: CreateServiceDTO): Promise<void> {
-    await this.service.createService({ ...serviceDto });
+  async createService(serviceDto: CreateServiceDTO): Promise<Service> {
+    return await this.service.createService({ ...serviceDto });
   }
 
   async findServiceById(id: string): Promise<Service> {

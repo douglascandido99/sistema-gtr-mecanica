@@ -10,7 +10,7 @@ export class UpdateServiceDTO extends PartialType(CreateServiceDTO) {
   readonly carYear?: number;
   readonly carModelYear?: number;
   readonly carColor?: string;
-  readonly carEngine?: number;
+  readonly carEngine?: string;
   readonly employee?: string;
   readonly serviceDone?: string;
   readonly totalPrice?: number;
