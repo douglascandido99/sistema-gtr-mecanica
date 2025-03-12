@@ -1,6 +1,17 @@
-import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsString,
+  IsUUID,
+} from 'class-validator';
 
 export class CreateServiceDTO {
+  @IsString()
+  @IsUUID()
+  @IsNotEmpty()
+  readonly id: string;
+
   @IsOptional()
   @IsString()
   readonly customerName?: string;

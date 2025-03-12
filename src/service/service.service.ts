@@ -7,13 +7,15 @@ import { ServiceRepository } from './repository/service.repository';
 import { CreateServiceDTO } from './dto/create-service.dto';
 import { UpdateServiceDTO } from './dto/update-service.dto';
 import { Service } from '@prisma/client';
+import { uuid } from 'uuidv4';
 
 @Injectable()
 export class ServiceService {
   constructor(private readonly service: ServiceRepository) {}
 
   async createService(serviceDto: CreateServiceDTO): Promise<Service> {
-    return await this.service.createService({ ...serviceDto });
+    const id = uuid();
+    return await this.service.createService({ id, ...serviceDto });
   }
 
   async findServiceById(id: string): Promise<Service> {
